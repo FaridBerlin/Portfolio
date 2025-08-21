@@ -12,10 +12,9 @@ import {
 } from "lucide-react";
 import { cn } from "../lib/utils";
 import { useState } from "react";
-import { useToast } from "../hooks/use-toast";
+import toast from "react-hot-toast";
 
 export const ContactSection = () => {
-  const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (e) => {
@@ -24,10 +23,7 @@ export const ContactSection = () => {
     setIsSubmitting(true);
 
     setTimeout(() => {
-      toast({
-        title: "Message sent!",
-        description: "Thank you for your message. I'll get back to you soon.",
-      });
+      toast.success("Message sent successfully! I'll get back to you soon.");
       setIsSubmitting(false);
       e.target.reset();
     }, 1500);
