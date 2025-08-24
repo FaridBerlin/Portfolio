@@ -48,7 +48,7 @@ export const Home = () => {
             density={1.2}
             glowIntensity={0.4}
             saturation={0.6}
-            hueShift={220}
+            hueShift={257}
             transparent={true}
           />
         </div>

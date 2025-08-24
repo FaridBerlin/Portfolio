@@ -74,7 +74,7 @@ export const Navbar = () => {
             aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
           >
             {theme === "light" ? (
-              <Moon size={20} className="text-blue-400" />
+              <Moon size={20} className="text-primary" />
             ) : (
               <Sun size={20} className="text-yellow-400" />
             )}
@@ -90,7 +90,7 @@ export const Navbar = () => {
             aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
           >
             {theme === "light" ? (
-              <Moon size={20} className="text-blue-400" />
+              <Moon size={20} className="text-primary" />
             ) : (
               <Sun size={20} className="text-yellow-400" />
             )}

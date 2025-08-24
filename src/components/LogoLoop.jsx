@@ -129,7 +129,7 @@ export const LogoLoop = () => {
   const duplicatedLogos = [...logos, ...logos];
 
   return (
-    <div className="py-8 mt-8 pt-24 overflow-hidden bg-gradient-to-r from-background via-card/20 to-background border-b border-border/50">
+    <div className="py-8 mt-8 pt-24 overflow-hidden bg-gradient-to-r from-background via-card/20 to-background border-b border-border/50" style={{ marginTop: '50px' }}>
       <div className="container mx-auto max-w-6xl">
         {/* Logo Loop Container */}
         <div className="relative mb-8">
@@ -151,9 +151,7 @@ export const LogoLoop = () => {
         </div>
 
         <div className="text-center">
-          <h3 className="text-xl md:text-2xl font-bold text-muted-foreground">
-            Technologies I Work With
-          </h3>
+          
           <p className="text-muted-foreground/70 mt-1 text-sm">
             Powered by modern tools and frameworks
           </p>
