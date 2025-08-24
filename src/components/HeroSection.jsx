@@ -1,4 +1,5 @@
 import { ArrowBigDown } from "lucide-react"
+import profileImage from "../assets/profile.jpg"
 
 
 export const HeroSection = () => {
@@ -38,7 +39,7 @@ return (
                     <div className="relative">
                         <div className="w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl hover:border-primary/50 transition-all duration-300 hover:scale-105">
                             <img 
-                                src="/images/profile.jpg" 
+                                src={profileImage} 
                                 alt="Farid Hima - Web Developer" 
                                 className="w-full h-full object-cover object-center"
                                 onError={(e) => {
