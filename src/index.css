@@ -20,6 +20,7 @@
   --animate-fade-in-delay-4: fade-in 0.7s ease-out 0.8s forwards;
   --animate-meteor: meteor 5s linear infinite;
   --animate-bounce-subtle: bounce-subtle 2s ease-in-out infinite;
+  --animate-scroll: scroll 15s linear infinite;
 
    @keyframes float {
     0%,
@@ -70,23 +71,31 @@
       transform: translateY(-5px);
     }
   }
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
 }
 
 @layer base {
   :root {
-    --background: 197 100% 95%;
-    --foreground: 222 47% 11%;
+    --background: 0 0% 98%;
+    --foreground: 222 84% 4%;
 
     --card: 0 0% 100%;
 
-    --primary: 0 84% 60%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 0 84% 50%;
+    --primary-foreground: 0 0% 98%;
 
-    --border: 214 32% 91%;
+    --border: 214 32% 85%;
     
-    --muted-foreground: 215 16% 47%;
-    --secondary: 210 40% 96%;
-    --input: 214 32% 91%;
+    --muted-foreground: 215 16% 25%;
+    --secondary: 210 40% 92%;
+    --input: 214 32% 88%;
   }
 
   .dark {
@@ -193,6 +202,109 @@
   margin: 0 auto;
   padding: 0;
   text-align: center;
+}
+
+/* Custom Sonner Toast Styles */
+.sonner-toast-large {
+  font-weight: 700 !important;
+  line-height: 1.4 !important;
+}
+
+/* Make Sonner icons bigger */
+[data-sonner-toast] [data-icon] {
+  width: 24px !important;
+  height: 24px !important;
+  margin-right: 12px !important;
+}
+
+/* Success toast specific styling */
+[data-sonner-toast][data-type="success"] [data-icon] {
+  width: 28px !important;
+  height: 28px !important;
+}
+
+/* Error toast specific styling */
+[data-sonner-toast][data-type="error"] [data-icon] {
+  width: 28px !important;
+  height: 28px !important;
+}
+
+/* Loading toast specific styling */
+[data-sonner-toast][data-type="loading"] [data-icon] {
+  width: 26px !important;
+  height: 26px !important;
+}
+
+/* Info toast specific styling */
+[data-sonner-toast][data-type="info"] [data-icon] {
+  width: 26px !important;
+  height: 26px !important;
+}
+
+/* Warning toast specific styling */
+[data-sonner-toast][data-type="warning"] [data-icon] {
+  width: 26px !important;
+  height: 26px !important;
+}
+
+/* Toast content styling */
+[data-sonner-toast] [data-content] {
+  font-weight: 700 !important;
+  font-size: 18px !important;
+}
+
+/* Toast description styling */
+[data-sonner-toast] [data-description] {
+  font-weight: 500 !important;
+  font-size: 15px !important;
+  margin-top: 4px !important;
+}
+
+/* Action button styling */
+[data-sonner-toast] [data-button] {
+  font-weight: 600 !important;
+  font-size: 14px !important;
+  padding: 8px 16px !important;
+  border-radius: 8px !important;
+}
+
+/* Close button styling */
+[data-sonner-toast] [data-close-button] {
+  width: 22px !important;
+  height: 22px !important;
+  color: #ef4444 !important; /* Red color */
+  background-color: white !important; /* White background */
+  border: 1px solid #ef4444 !important; /* Red border */
+  border-radius: 50% !important;
+  transition: all 0.2s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Close button hover effect */
+[data-sonner-toast] [data-close-button]:hover {
+  color: white !important; /* White text on hover */
+  background-color: #ef4444 !important; /* Red background on hover */
+  border-color: #dc2626 !important; /* Darker red border on hover */
+  transform: scale(1.1) !important;
+  box-shadow: 0 4px 8px rgba(239, 68, 68, 0.3) !important;
+}
+
+/* Make the X icon inside the close button red */
+[data-sonner-toast] [data-close-button] svg {
+  color: #ef4444 !important;
+  stroke: #ef4444 !important;
+  fill: none !important;
+  width: 14px !important;
+  height: 14px !important;
+}
+
+/* X icon on hover - make it white */
+[data-sonner-toast] [data-close-button]:hover svg {
+  color: white !important;
+  stroke: white !important;
 }
 
 

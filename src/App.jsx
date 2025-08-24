@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { Home } from "./pages/Home"
 import { NotFound } from "./pages/NotFound"
-import { Toaster } from 'react-hot-toast'
+import { Toaster } from 'sonner'
 
 
 function App() {
@@ -16,24 +16,23 @@ function App() {
       </Routes>
       <Toaster 
         position="top-right"
+        expand={true}
+        richColors={true}
+        closeButton={true}
+        duration={4000}
         toastOptions={{
-          duration: 5000,
           style: {
-            background: 'hsl(var(--card))',
-            color: 'hsl(var(--foreground))',
-            border: '1px solid hsl(var(--border))',
-            fontSize: '16px',
-            padding: '16px 20px',
-            minWidth: '350px',
-            borderRadius: '12px',
+            fontSize: '18px',
+            fontWeight: '600',
+            padding: '20px 24px',
+            borderRadius: '16px',
+            boxShadow: '0 10px 25px rgba(0, 0, 0, 0.15)',
+            minWidth: '400px',
+            minHeight: '80px',
           },
-          success: {
-            iconTheme: {
-              primary: 'hsl(var(--primary))',
-              secondary: 'hsl(var(--primary-foreground))',
-            },
-          },
+          className: 'sonner-toast-large',
         }}
+        theme="system"
       />
     </BrowserRouter>
     </>

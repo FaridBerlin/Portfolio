@@ -6,7 +6,7 @@ export const HeroSection = () => {
 return (
     <section
      id="hero"
-     className="relative min-h-screen flex flex-col items-center justify-center px-4">
+     className="relative min-h-screen flex flex-col items-center justify-center px-4 -mt-48">
 
     <div className="container max-w-6xl mx-auto text-center z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -47,11 +47,6 @@ return (
                                 }}
                             />
                         </div>
-                        
-                        {/* Floating elements */}
-                        <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary rounded-full animate-float shadow-lg"></div>
-                        <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-blue-500 rounded-full animate-float" style={{animationDelay: '1s'}}></div>
-                        <div className="absolute top-1/2 -left-6 w-4 h-4 bg-yellow-500 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
                     </div>
                 </div>
             </div>
