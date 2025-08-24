@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-    <BrowserRouter>
+    <BrowserRouter basename="/Portfolio">
       <Routes>
         <Route index element={<Home />} />
         <Route path="*" element={<NotFound />} />
@@ -17,7 +17,7 @@ function App() {
       <Toaster 
         position="top-right"
         toastOptions={{
-          duration: 9000,
+          duration: 5000,
           style: {
             background: 'hsl(var(--card))',
             color: 'hsl(var(--foreground))',
