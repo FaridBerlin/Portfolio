@@ -6,9 +6,9 @@
 
 ## 📋 **Quick Overview**
 
-### **⚡ Stack**: React 19 + Vite 7 + Tailwind CSS 4 + React Router
+### **⚡ Stack**: React 19 + Vite 7 + Tailwind CSS 4 + OGL + Sonner
 
-### **🎯 Focus**: Installation process, architecture decisions, code implementation
+### **🎯 Focus**: Modern WebGL backgrounds, purple-blue theme system, advanced animations
 
 ---
 
@@ -24,102 +24,174 @@ cd portfolio && npm install
 ### **Key Dependencies**
 
 ```bash
-# Core packages
+# Core Framework
 npm install react-router-dom tailwindcss @tailwindcss/vite
-npm install clsx tailwind-merge lucide-react react-hot-toast
+npm install clsx tailwind-merge lucide-react
 
-# Font Awesome for brand icons
+# Advanced Features
+npm install sonner ogl class-variance-authority
 npm install @fortawesome/fontawesome-svg-core @fortawesome/free-brands-svg-icons @fortawesome/react-fontawesome
+
+# Development & Deployment
+npm install gh-pages --save-dev
 ```
 
 ---
 
 ## 🏗️ **MINUTE 2-3: Core Implementation**
 
-### **Router Setup**
+### **Enhanced Router Setup**
 
 ```javascript
-// App.jsx
+// App.jsx - Sonner Toast Integration
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Toaster } from "react-hot-toast";
+import { Toaster } from "sonner";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/Portfolio">
       <Routes>
         <Route index element={<Home />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Toaster position="top-right" />
+      <Toaster
+        position="top-right"
+        expand={true}
+        richColors={true}
+        closeButton={true}
+        duration={4000}
+        toastOptions={{
+          style: {
+            fontSize: "18px",
+            fontWeight: "600",
+            padding: "20px 24px",
+            borderRadius: "16px",
+            boxShadow: "0 10px 25px rgba(0, 0, 0, 0.15)",
+            minWidth: "400px",
+            minHeight: "80px",
+          },
+          className: "sonner-toast-large",
+        }}
+        theme="system"
+      />
     </BrowserRouter>
   );
 }
 ```
 
-### **Utility Function**
+### **Purple-Blue Theme System**
 
-```javascript
-// lib/utils.js - Handles Tailwind class conflicts
-import { clsx } from "clsx";
-import { twMerge } from "tailwind-merge";
+```css
+/* index.css - Custom Color Variables */
+:root {
+  --primary: 257 91% 57%; /* Purple-blue #6625FC */
+  --primary-foreground: 0 0% 98%;
+}
 
-export const cn = (...inputs) => {
-  return twMerge(clsx(inputs));
-};
+.dark {
+  --primary: 257 91% 65%; /* Lighter for dark mode */
+  --primary-foreground: 213 31% 91%;
+}
+
+@utility text-glow {
+  text-shadow: 0 0 10px rgba(102, 37, 252, 0.5);
+}
+
+@utility cosmic-button {
+  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground 
+         hover:shadow-[0_0_10px_rgba(102,37,252,0.5)] hover:scale-105;
+}
 ```
 
-### **Theme System**
+### **Conditional Background System**
 
 ```javascript
-// Theme toggle with localStorage persistence
-const [theme, setTheme] = useState(
-  () => localStorage.getItem("theme") || "light"
-);
+// Home.jsx - Light/Dark Mode Backgrounds
+const [isDarkMode, setIsDarkMode] = useState(false);
 
-useEffect(() => {
-  document.documentElement.className = theme;
-  localStorage.setItem("theme", theme);
-}, [theme]);
+return (
+  <div
+    className={`min-h-screen text-foreground ${
+      isDarkMode
+        ? "bg-background"
+        : "bg-gradient-to-br from-sky-100 via-blue-50 to-indigo-100"
+    }`}
+  >
+    {/* Galaxy background only in dark mode */}
+    {isDarkMode && (
+      <div className="fixed inset-0 z-0">
+        <GalaxyBackground
+          mouseRepulsion={true}
+          mouseInteraction={true}
+          hueShift={257} // Purple-blue theme
+        />
+      </div>
+    )}
+  </div>
+);
 ```
 
 ---
 
-## 💻 **MINUTE 4: Key Features**
+## 💻 **MINUTE 4: Advanced Features**
 
-### **Dynamic Star Generation**
+### **WebGL Galaxy Background with Global Mouse Interaction**
 
 ```javascript
-// Mathematical algorithm for responsive stars
-const generateStars = () => {
-  const numberOfStars = Math.floor(
-    (window.innerWidth * window.innerHeight) / 9000
-  );
-  const newStars = [];
+// GalaxyBackground.jsx - Document-level mouse events
+function handleMouseMove(e) {
+  const rect = ctn.getBoundingClientRect();
+  const x = (e.clientX - rect.left) / rect.width;
+  const y = 1.0 - (e.clientY - rect.top) / rect.height;
+  targetMousePos.current = { x, y };
+  targetMouseActive.current = 1.0;
+}
 
-  for (let i = 0; i < numberOfStars; i++) {
-    newStars.push({
-      size: Math.random() * 3 + 1,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      opacity: Math.random() * 0.5 + 0.5,
-    });
-  }
-  setStars(newStars);
+// Listen on document for global interaction
+if (mouseInteraction) {
+  document.addEventListener("mousemove", handleMouseMove);
+  document.addEventListener("mouseleave", handleMouseLeave);
+}
+```
+
+### **Technology Logo Loop**
+
+```javascript
+// LogoLoop.jsx - Animated Technology Showcase
+const LogoLoop = () => {
+  const logos = [
+    { name: "React", logo: <ReactSVG /> },
+    { name: "JavaScript", logo: <JSSVG /> },
+    // ... more tech logos
+  ];
+
+  return (
+    <div className="overflow-hidden" style={{ marginTop: "50px" }}>
+      <div className="flex animate-scroll">
+        {[...logos, ...logos].map((tech, index) => (
+          <Logo key={index} name={tech.name} logo={tech.logo} />
+        ))}
+      </div>
+    </div>
+  );
 };
 ```
 
-### **Form with Toast**
+### **Enhanced Toast Notifications**
 
 ```javascript
-// Contact form with react-hot-toast
-const handleSubmit = (e) => {
-  e.preventDefault();
-  setIsSubmitting(true);
+// ContactSection.jsx - Multiple Toast Types
+const showToastDemo = () => {
+  toast.info("🚀 Portfolio Tech Stack Info", {
+    description: "Built with React 19 + Vite 7 + Tailwind CSS 4 + Sonner!",
+    duration: 4000,
+  });
 
   setTimeout(() => {
-    toast.success("Message sent successfully!");
-    setIsSubmitting(false);
-    e.target.reset();
+    toast.warning("⚡ Experimental Feature Alert", {
+      description: "Enhanced colorful notifications with bigger icons!",
+      duration: 4000,
+    });
   }, 1500);
 };
 ```
@@ -128,36 +200,38 @@ const handleSubmit = (e) => {
 
 ## ⚡ **MINUTE 5: Build & Deploy**
 
-### **Development**
+### **GitHub Pages Deployment**
 
 ```bash
-npm run dev    # localhost:5174
-npm run build  # Production build
+npm run dev     # localhost:5174
+npm run build   # Production build with Galaxy background
+npm run deploy  # Auto-deploy to GitHub Pages
 ```
 
-### **Key Technical Decisions**
+### **Key Technical Achievements**
 
-- **Vite**: Fast HMR, optimized builds
-- **Tailwind + clsx**: Conditional styling without conflicts
-- **Font Awesome**: Authentic brand colors for tech logos
+- **WebGL Integration**: OGL library for performant Galaxy animations
+- **Global Mouse Events**: Document-level interaction for full-page effects
+- **Conditional Rendering**: Smart background switching (Galaxy vs Sky-blue)
+- **Purple-Blue Branding**: Consistent #6625FC theme across all components
+- **Enhanced UX**: Sonner toasts with custom styling and larger icons
+- **Technology Showcase**: Animated LogoLoop with authentic brand colors
+
+### **Performance Optimizations**
+
+- **Conditional Galaxy**: Only renders WebGL in dark mode
+- **Document Events**: Efficient global mouse tracking
 - **CSS Custom Properties**: Smooth theme transitions
-- **React Router**: Client-side navigation
-
-### **Performance**
-
-- Tree-shaking for smaller bundles
-- CSS purging removes unused styles
-- Mathematical animations (no layout thrashing)
-- localStorage for theme persistence
+- **Component Lazy Loading**: Optimized bundle sizes
 
 ---
 
-## 🎯 **Quick Demo Points**
+## 🎯 **Demo Highlights**
 
-1. **Installation**: `npm install` → `npm run dev`
-2. **Router**: SPA navigation with clean URLs
-3. **Theme Toggle**: Instant dark/light mode switching
-4. **Responsive Stars**: Adapts to screen size mathematically
-5. **Toast System**: Simple user feedback mechanism
+1. **Theme Toggle**: Purple-blue moon icon → Galaxy background
+2. **Mouse Interaction**: Galaxy particles respond across entire page
+3. **Logo Showcase**: Smooth scrolling technology loop
+4. **Toast System**: Colorful notifications with enhanced styling
+5. **Responsive**: Sky-blue gradient (light) / Galaxy (dark)
 
-**That's it! Modern React portfolio with optimized build process and clean architecture.**
+**Result: Professional portfolio with advanced WebGL effects and modern React architecture.**
