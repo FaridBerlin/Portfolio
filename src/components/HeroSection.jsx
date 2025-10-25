@@ -1,6 +1,5 @@
-import { ArrowBigDown } from "lucide-react"
-import profileImage from "../assets/profile.jpg"
-
+import { ArrowBigDown } from "lucide-react";
+import profileImage from "../assets/profile2.png";
 
 export const HeroSection = () => {
 return (

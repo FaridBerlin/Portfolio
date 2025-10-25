@@ -88,7 +88,7 @@
 
     --card: 0 0% 100%;
 
-    --primary: 257 91% 57%;
+    --primary: 176 100% 45%;
     --primary-foreground: 0 0% 98%;
 
     --border: 214 32% 85%;
@@ -104,7 +104,7 @@
 
     --card: 222 47% 8%;
 
-    --primary: 257 91% 65%;
+    --primary: 176 100% 50%;
     --primary-foreground: 213 31% 91%;
 
     --border: 217 33% 20%;
@@ -151,7 +151,7 @@
 
 @utility text-glow {
   @apply relative;
-  text-shadow: 0 0 10px rgba(102, 37, 252, 0.5);
+  text-shadow: 0 0 10px rgba(0, 230, 214, 0.5);
 }
 
 @utility card-hover {
@@ -167,7 +167,7 @@
 
 @utility cosmic-button {
   @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium 
-         transition-all duration-300 hover:shadow-[0_0_10px_rgba(102,37,252,0.5)]
+         transition-all duration-300 hover:shadow-[0_0_10px_rgba(0,230,214,0.5)]
          hover:scale-105 active:scale-95;
 }
 
@@ -272,9 +272,9 @@
 [data-sonner-toast] [data-close-button] {
   width: 22px !important;
   height: 22px !important;
-  color: #6625fc !important; /* Purple-blue color */
+  color: #00e6d6 !important; /* Darker cyan color */
   background-color: white !important; /* White background */
-  border: 1px solid #6625fc !important; /* Purple-blue border */
+  border: 1px solid #00e6d6 !important; /* Darker cyan border */
   border-radius: 50% !important;
   transition: all 0.2s ease !important;
   display: flex !important;
@@ -286,16 +286,16 @@
 /* Close button hover effect */
 [data-sonner-toast] [data-close-button]:hover {
   color: white !important; /* White text on hover */
-  background-color: #6625fc !important; /* Purple-blue background on hover */
-  border-color: #5a1fdb !important; /* Darker purple-blue border on hover */
+  background-color: #00e6d6 !important; /* Darker cyan background on hover */
+  border-color: #00ccc0 !important; /* Even darker cyan border on hover */
   transform: scale(1.1) !important;
-  box-shadow: 0 4px 8px rgba(102, 37, 252, 0.3) !important;
+  box-shadow: 0 4px 8px rgba(0, 230, 214, 0.3) !important;
 }
 
-/* Make the X icon inside the close button purple-blue */
+/* Make the X icon inside the close button darker cyan */
 [data-sonner-toast] [data-close-button] svg {
-  color: #6625fc !important;
-  stroke: #6625fc !important;
+  color: #00e6d6 !important;
+  stroke: #00e6d6 !important;
   fill: none !important;
   width: 14px !important;
   height: 14px !important;

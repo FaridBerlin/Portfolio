@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import GalaxyBackground from '../components/GalaxyBackground'
 import { Navbar } from '../components/Navbar'
 import { HeroSection } from '../components/HeroSection'
@@ -48,7 +48,7 @@ export const Home = () => {
             density={1.2}
             glowIntensity={0.4}
             saturation={0.6}
-            hueShift={257}
+            hueShift={176}
             transparent={true}
           />
         </div>
@@ -69,10 +69,3 @@ export const Home = () => {
     </div>
   )
 };
-
-
-
-
-
-
-
