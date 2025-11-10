@@ -1,4 +1,5 @@
 import { Github, Linkedin, Twitter, Mail, Heart, ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -132,6 +133,12 @@ export const Footer = () => {
             </div>
             
             <div className="flex gap-6 text-sm">
+              <Link 
+                to="/impressum" 
+                className="text-muted-foreground hover:text-primary transition-colors duration-300"
+              >
+                Impressum
+              </Link>
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors duration-300">
                 Privacy Policy
               </a>

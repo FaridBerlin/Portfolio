@@ -119,70 +119,46 @@ export const ContactSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div className="space-y-8">
-            <h3 className="text-2xl font-semibold mb-6">
-              {" "}
-              Contact Information
-            </h3>
-
-            <div className="space-y-6 justify-center">
-              <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Mail className="h-6 w-6 text-primary" />{" "}
-                </div>
-                <div>
-                  <h4 className="font-medium"> Email</h4>
-                  <a
-                    href="mailto:farid.hima@dci-student.org"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    farid.hima@dci-student.org
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <Phone className="h-6 w-6 text-primary" />{" "}
-                </div>
-                <div>
-                  <h4 className="font-medium"> Phone</h4>
-                  <a
-                    href="tel:+11234567890"
-                    className="text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    ........
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <div className="p-3 rounded-full bg-primary/10">
-                  <MapPin className="h-6 w-6 text-primary" />{" "}
-                </div>
-                <div>
-                  <h4 className="font-medium"> Location</h4>
-                  <a className="text-muted-foreground hover:text-primary transition-colors">
-                    Berlin, Germany
-                  </a>
-                </div>
+          {/* Social Media Section */}
+          <div className="space-y-8 relative flex flex-col justify-center">
+            <div>
+              <h3 className="text-2xl font-semibold mb-6 text-center"> Connect With Me</h3>
+              <div className="flex space-x-6 justify-center">
+                <a 
+                  href="#" 
+                  target="_blank"
+                  className="p-4 rounded-full bg-primary/10 hover:bg-primary/20 transition-all duration-300 hover:scale-110"
+                >
+                  <Linkedin className="h-7 w-7 text-primary" />
+                </a>
+                <a 
+                  href="#" 
+                  target="_blank"
+                  className="p-4 rounded-full bg-primary/10 hover:bg-primary/20 transition-all duration-300 hover:scale-110"
+                >
+                  <Twitter className="h-7 w-7 text-primary" />
+                </a>
+                <a 
+                  href="#" 
+                  target="_blank"
+                  className="p-4 rounded-full bg-primary/10 hover:bg-primary/20 transition-all duration-300 hover:scale-110"
+                >
+                  <Instagram className="h-7 w-7 text-primary" />
+                </a>
+                <a 
+                  href="#" 
+                  target="_blank"
+                  className="p-4 rounded-full bg-primary/10 hover:bg-primary/20 transition-all duration-300 hover:scale-110"
+                >
+                  <Twitch className="h-7 w-7 text-primary" />
+                </a>
               </div>
             </div>
 
-            <div className="pt-8">
-              <h4 className="font-medium mb-4"> Connect With Me</h4>
-              <div className="flex space-x-4 justify-center">
-                <a href="#" target="_blank">
-                  <Linkedin />
-                </a>
-                <a href="#" target="_blank">
-                  <Twitter />
-                </a>
-                <a href="#" target="_blank">
-                  <Instagram />
-                </a>
-                <a href="#" target="_blank">
-                  <Twitch />
-                </a>
-              </div>
+            {/* Barely visible legal info for compliance */}
+            <div className="absolute bottom-0 right-0 opacity-[0.01] text-[2px] pointer-events-none select-none">
+              <div>Email: farid.hima@dci-student.org</div>
+              <div>Location: 12045 Berlin, Germany</div>
             </div>
           </div>
 

@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const navItems = [
   { name: "Home", href: "#hero" },
@@ -16,6 +17,32 @@ export const Navbar = () => {
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem("theme") || "light";
   });
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    
+    // If we're not on the home page, navigate to home first
+    if (location.pathname !== "/" && location.pathname !== "/Portfolio" && location.pathname !== "/Portfolio/") {
+      navigate("/" + href);
+      // Small delay to ensure navigation completes before scrolling
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      // We're on home page, just scroll
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+    
+    setIsMobileMenuOpen(false);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,8 +73,12 @@ export const Navbar = () => {
     >
       <div className="container flex items-center justify-between">
         <a
-          href="#hero"
-          className="text-4xl font-bold text-primary flex items-center"
+          href="/"
+          onClick={(e) => {
+            e.preventDefault();
+            navigate("/");
+          }}
+          className="text-4xl font-bold text-primary flex items-center cursor-pointer"
         >
           <span className="relative z-10">
             <span className="text-glow text-foreground">Farid</span>{" "}
@@ -61,7 +92,8 @@ export const Navbar = () => {
             <a
               href={item.href}
               key={key}
-              className="text-foreground/80 hover:text-primary transition-color duration-300 text-2xl font-bold"
+              onClick={(e) => handleNavClick(e, item.href)}
+              className="text-foreground/80 hover:text-primary transition-color duration-300 text-2xl font-bold cursor-pointer"
             >
               {item.name}
             </a>
@@ -117,8 +149,8 @@ export const Navbar = () => {
               <a
                 href={item.href}
                 key={key}
-                className="text-foreground/80 hover:text-primary transition-color duration-300 text-2xl font-bold"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => handleNavClick(e, item.href)}
+                className="text-foreground/80 hover:text-primary transition-color duration-300 text-2xl font-bold cursor-pointer"
               >
                 {item.name}
               </a>

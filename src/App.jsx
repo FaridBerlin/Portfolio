@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { Home } from "./pages/Home"
 import { NotFound } from "./pages/NotFound"
+import { Impressum } from "./pages/Impressum"
 import { Toaster } from 'sonner'
 
 
@@ -12,6 +13,7 @@ function App() {
     <BrowserRouter basename="/Portfolio">
       <Routes>
         <Route index element={<Home />} />
+        <Route path="/impressum" element={<Impressum />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Toaster 
