@@ -88,7 +88,7 @@
 
     --card: 0 0% 100%;
 
-    --primary: 176 100% 45%;
+    --primary: 176 100% 30%;
     --primary-foreground: 0 0% 98%;
 
     --border: 214 32% 85%;
@@ -104,7 +104,7 @@
 
     --card: 222 47% 8%;
 
-    --primary: 176 100% 50%;
+    --primary: 176 100% 30%;
     --primary-foreground: 213 31% 91%;
 
     --border: 217 33% 20%;
@@ -272,9 +272,9 @@
 [data-sonner-toast] [data-close-button] {
   width: 22px !important;
   height: 22px !important;
-  color: #00e6d6 !important; /* Darker cyan color */
+  color: #078232 !important; /* Darker cyan color */
   background-color: white !important; /* White background */
-  border: 1px solid #00e6d6 !important; /* Darker cyan border */
+  border: 1px solid #078232 !important; /* Darker cyan border */
   border-radius: 50% !important;
   transition: all 0.2s ease !important;
   display: flex !important;
@@ -286,16 +286,16 @@
 /* Close button hover effect */
 [data-sonner-toast] [data-close-button]:hover {
   color: white !important; /* White text on hover */
-  background-color: #00e6d6 !important; /* Darker cyan background on hover */
-  border-color: #00ccc0 !important; /* Even darker cyan border on hover */
+  background-color: #078232 !important; /* Darker cyan background on hover */
+  border-color: #066622 !important; /* Even darker cyan border on hover */
   transform: scale(1.1) !important;
-  box-shadow: 0 4px 8px rgba(0, 230, 214, 0.3) !important;
+  box-shadow: 0 4px 8px rgba(7, 130, 50, 0.3) !important;
 }
 
 /* Make the X icon inside the close button darker cyan */
 [data-sonner-toast] [data-close-button] svg {
-  color: #00e6d6 !important;
-  stroke: #00e6d6 !important;
+  color: #078232 !important;
+  stroke: #078232 !important;
   fill: none !important;
   width: 14px !important;
   height: 14px !important;
