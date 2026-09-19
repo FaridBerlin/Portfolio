@@ -22,10 +22,10 @@ export const Impressum = () => {
                   <div>
                     <p className="font-medium">Email</p>
                     <a
-                      href="mailto:farid.hima@dci-student.org"
+                      href="mailto:bughunterf@gmail.com"
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
-                      farid.hima@dci-student.org
+                      bughunterf@gmail.com
                     </a>
                   </div>
                 </div>

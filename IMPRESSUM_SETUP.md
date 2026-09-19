@@ -48,7 +48,7 @@ Your Impressum page now includes all required elements:
 
 - ✅ Full legal name (Farid Hima)
 - ⚠️ Physical address (YOU MUST ADD YOUR FULL ADDRESS)
-- ✅ Email address (farid.hima@dci-student.org)
+- ✅ Email address (bughunterf@gmail.com)
 - ⚠️ Phone number (YOU MUST ADD YOUR REAL PHONE NUMBER)
 - ✅ Responsible for content (§ 55 Abs. 2 RStV)
 - ✅ Disclaimer (Haftungsausschluss)

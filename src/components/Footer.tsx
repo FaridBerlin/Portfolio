@@ -36,7 +36,7 @@ export const Footer = () => {
     },
     {
       name: "Email",
-      href: "mailto:hello@farid.dev",
+      href: "mailto:bughunterf@gmail.com",
       icon: Mail,
     },
   ];
