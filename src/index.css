@@ -118,6 +118,14 @@
     @apply border-border;
   }
 
+  html,
+  body {
+    /* Safety net: keep a stray decorative element from making the whole
+       page scroll sideways. `clip` rather than `hidden` so neither element
+       becomes a scroll container. */
+    overflow-x: clip;
+  }
+
   html {
     @apply scroll-smooth;
   }
