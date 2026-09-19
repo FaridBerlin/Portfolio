@@ -61,11 +61,27 @@ export const Navbar = () => {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isMobileMenuOpen]);
+
   const toggleTheme = () => {
     setTheme(prev => prev === "light" ? "dark" : "light");
   };
 
   return (
+    <>
     <nav
       className={cn(
         "fixed top-0 left-0 w-full z-40 transition-all duration-300",
@@ -139,27 +155,38 @@ export const Navbar = () => {
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
-        <div
-          className={cn(
-            "fixed inset-0 bg-background/95 backdroup-blur-md z-40 flex flex-col items-center justify-center ",
-            "transition-all duration-300 md:hidden",
-            isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-          )}
-        >
-          <div className="flex flex-col space-y-8 text-xl">
-            {navItems.map((item, key) => (
-              <a
-                href={item.href}
-                key={key}
-                onClick={(e) => handleNavClick(e, item.href)}
-                className="text-foreground/80 hover:text-primary transition-color duration-300 text-2xl font-bold cursor-pointer"
-              >
-                {item.name}
-              </a>
-            ))}
-          </div>
-        </div>
       </div>
     </nav>
+
+    {/*
+      Mobile menu overlay - deliberately a sibling of <nav>, not a child.
+      The nav carries `backdrop-blur`, and backdrop-filter establishes a
+      containing block for fixed-position descendants, which would shrink
+      this `fixed inset-0` scrim to the header's box. It sits below the
+      nav's z-40 so the header (and its close button) stay on top.
+    */}
+    <div
+      className={cn(
+        "fixed inset-0 z-30 bg-background/95 backdrop-blur-md flex flex-col items-center justify-center",
+        "transition-opacity duration-300 md:hidden",
+        isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+      )}
+      aria-hidden={!isMobileMenuOpen}
+    >
+      <div className="flex flex-col space-y-8 text-xl">
+        {navItems.map((item, key) => (
+          <a
+            href={item.href}
+            key={key}
+            onClick={(e) => handleNavClick(e, item.href)}
+            tabIndex={isMobileMenuOpen ? 0 : -1}
+            className="text-foreground/80 hover:text-primary transition-color duration-300 text-2xl font-bold cursor-pointer"
+          >
+            {item.name}
+          </a>
+        ))}
+      </div>
+    </div>
+    </>
   );
 };
