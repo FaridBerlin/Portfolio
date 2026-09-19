@@ -123,12 +123,6 @@ export const ContactSection = () => {
                 })}
               </div>
             </div>
-
-            {/* Barely visible legal info for compliance */}
-            <div className="absolute bottom-0 right-0 opacity-[0.01] text-[2px] pointer-events-none select-none">
-              <div>Email: farid.hima@dci-student.org</div>
-              <div>Location: 12045 Berlin, Germany</div>
-            </div>
           </div>
 
           <div className="bg-card p-8 rounded-lg shadow-xs">
