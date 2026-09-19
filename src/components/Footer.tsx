@@ -132,10 +132,17 @@ export const Footer = () => {
               <span>using React & Tailwind CSS</span>
             </div>
 
-            <div className="flex gap-6 text-sm">
+            {/*
+              Visually de-emphasised relative to the other footer links:
+              12px instead of 14px, and a lighter muted tone. Kept at
+              readable size and contrast, as plain "Impressum" text, and
+              one click from every page - it is a legal disclosure and
+              has to stay leicht erkennbar.
+            */}
+            <div className="flex gap-6">
               <Link
                 to="/impressum"
-                className="text-muted-foreground hover:text-primary transition-colors duration-300"
+                className="text-xs text-muted-foreground opacity-80 hover:opacity-100 hover:text-primary transition-all duration-300"
               >
                 Impressum
               </Link>
