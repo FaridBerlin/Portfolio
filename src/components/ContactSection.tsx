@@ -1,9 +1,7 @@
 import {
-  Instagram,
+  Github,
   Linkedin,
   Send,
-  Twitch,
-  Twitter,
 } from "lucide-react";
 import { cn } from "../lib/utils";
 import { useState } from "react";
@@ -13,6 +11,19 @@ import emailjs from "@emailjs/browser";
 const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+const socialLinks = [
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/farid-hima-834521389/",
+    icon: Linkedin,
+  },
+  {
+    name: "GitHub",
+    href: "https://github.com/FaridBerlin",
+    icon: Github,
+  },
+];
 
 export const ContactSection = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -95,34 +106,21 @@ export const ContactSection = () => {
             <div>
               <h3 className="text-2xl font-semibold mb-6 text-center"> Connect With Me</h3>
               <div className="flex space-x-6 justify-center">
-                <a
-                  href="#"
-                  target="_blank"
-                  className="p-4 rounded-full bg-primary/10 hover:bg-primary/20 transition-all duration-300 hover:scale-110"
-                >
-                  <Linkedin className="h-7 w-7 text-primary" />
-                </a>
-                <a
-                  href="#"
-                  target="_blank"
-                  className="p-4 rounded-full bg-primary/10 hover:bg-primary/20 transition-all duration-300 hover:scale-110"
-                >
-                  <Twitter className="h-7 w-7 text-primary" />
-                </a>
-                <a
-                  href="#"
-                  target="_blank"
-                  className="p-4 rounded-full bg-primary/10 hover:bg-primary/20 transition-all duration-300 hover:scale-110"
-                >
-                  <Instagram className="h-7 w-7 text-primary" />
-                </a>
-                <a
-                  href="#"
-                  target="_blank"
-                  className="p-4 rounded-full bg-primary/10 hover:bg-primary/20 transition-all duration-300 hover:scale-110"
-                >
-                  <Twitch className="h-7 w-7 text-primary" />
-                </a>
+                {socialLinks.map((social) => {
+                  const IconComponent = social.icon;
+                  return (
+                    <a
+                      key={social.name}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.name}
+                      className="p-4 rounded-full bg-primary/10 hover:bg-primary/20 transition-all duration-300 hover:scale-110"
+                    >
+                      <IconComponent className="h-7 w-7 text-primary" />
+                    </a>
+                  );
+                })}
               </div>
             </div>
 
