@@ -132,14 +132,19 @@ export const Footer = () => {
               <span>using React & Tailwind CSS</span>
             </div>
 
-            <div className="flex gap-6 text-sm">
-              <Link
-                to="/impressum"
-                className="text-muted-foreground hover:text-primary transition-colors duration-300"
-              >
-                Impressum
-              </Link>
-            </div>
+          </div>
+
+          {/*
+            Legal links row, below all other footer content. Styled as
+            plain small print in the same muted tone as the copyright
+            line - no bold, no underline, no accent colour and no hover
+            treatment - so it reads as a legal notice rather than a nav
+            item. It stays literal "Impressum" text, one click away on
+            every page, because it is a legal disclosure and has to
+            remain leicht erkennbar.
+          */}
+          <div className="mt-6 flex justify-center md:justify-start gap-4 text-xs text-muted-foreground">
+            <Link to="/impressum">Impressum</Link>
           </div>
         </div>
       </div>
