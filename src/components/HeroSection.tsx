@@ -5,7 +5,7 @@ export const HeroSection = () => {
 return (
     <section
      id="hero"
-     className="relative min-h-screen flex flex-col items-center justify-center px-4 -mt-48">
+     className="relative min-h-screen flex flex-col items-center justify-center px-4 -mt-48 overflow-hidden">
 
     <div className="container max-w-6xl mx-auto text-center z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
