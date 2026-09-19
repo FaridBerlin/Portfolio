@@ -6,12 +6,12 @@ export const Impressum = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
-      
+
       <main className="container mx-auto max-w-4xl px-4 py-24">
         <div className="bg-card rounded-lg shadow-lg p-8 md:p-12">
           <h1 className="text-4xl font-bold mb-2">Impressum</h1>
           <p className="text-sm text-muted-foreground mb-8">Legal Disclosure / Angaben gemäß § 5 TMG</p>
-          
+
           <div className="space-y-8">
             {/* Personal Information */}
             <section>
@@ -21,31 +21,31 @@ export const Impressum = () => {
                   <Mail className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                   <div>
                     <p className="font-medium">Email</p>
-                    <a 
-                      href="mailto:farid.hima@dci-student.org" 
+                    <a
+                      href="mailto:farid.hima@dci-student.org"
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
                       farid.hima@dci-student.org
                     </a>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start space-x-3">
                   <Phone className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                   <div>
                     <p className="font-medium">Phone</p>
-                    <a 
-                      href="tel:+491234567890" 
+                    <a
+                      href="tel:+491234567890"
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
-                      +49 
+                      +49
                     </a>
                     <p className="text-xs text-muted-foreground mt-1">
-                      
+
                     </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start space-x-3">
                   <MapPin className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                   <div>
@@ -57,7 +57,7 @@ export const Impressum = () => {
                       Germany
                     </p>
                     <p className="text-xs text-muted-foreground mt-1">
-                      
+
                     </p>
                   </div>
                 </div>
@@ -83,7 +83,7 @@ export const Impressum = () => {
               <h2 className="text-2xl font-semibold mb-4 text-primary">
                 Haftungsausschluss / Disclaimer
               </h2>
-              
+
               <div className="space-y-4 text-muted-foreground">
                 <div>
                   <h3 className="font-semibold text-foreground mb-2">Haftung für Inhalte / Liability for Content</h3>
@@ -136,10 +136,10 @@ export const Impressum = () => {
                 EU-Streitschlichtung / EU Dispute Resolution
               </h2>
               <p className="text-muted-foreground text-sm">
-                Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: 
-                <a 
-                  href="https://ec.europa.eu/consumers/odr" 
-                  target="_blank" 
+                Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+                <a
+                  href="https://ec.europa.eu/consumers/odr"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary hover:underline ml-1"
                 >

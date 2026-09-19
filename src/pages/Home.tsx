@@ -35,14 +35,14 @@ export const Home = () => {
 
   return (
     <div className={`min-h-screen text-foreground ${
-      isDarkMode 
-        ? 'bg-background' 
+      isDarkMode
+        ? 'bg-background'
         : 'bg-gradient-to-br from-sky-100 via-blue-50 to-indigo-100'
     }`}>
       {/* Galaxy background only in dark mode */}
       {isDarkMode && (
         <div className="fixed inset-0 z-0">
-          <GalaxyBackground 
+          <GalaxyBackground
             mouseRepulsion={true}
             mouseInteraction={true}
             density={1.2}
@@ -53,7 +53,7 @@ export const Home = () => {
           />
         </div>
       )}
-      
+
       <div className="relative z-10">
         <Navbar />
         <LogoLoop />

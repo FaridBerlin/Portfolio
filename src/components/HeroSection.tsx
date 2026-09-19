@@ -33,16 +33,16 @@ return (
                 <div className="relative opacity-0 animate-fade-in-delay-2">
                     {/* Glowing background effect */}
                     <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-blue-500/20 rounded-full blur-3xl scale-150 animate-pulse-subtle"></div>
-                    
+
                     {/* Profile image container */}
                     <div className="relative">
                         <div className="w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl hover:border-primary/50 transition-all duration-300 hover:scale-105">
-                            <img 
-                                src={profileImage} 
-                                alt="Farid Hima - Web Developer" 
+                            <img
+                                src={profileImage}
+                                alt="Farid Hima - Web Developer"
                                 className="w-full h-full object-cover object-center"
-                                onError={(e) => {
-                                    e.target.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><rect width="400" height="400" fill="%23f3f4f6"/><circle cx="200" cy="150" r="50" fill="%236b7280"/><path d="M100 300 Q200 250 300 300" stroke="%236b7280" stroke-width="20" fill="none"/></svg>';
+                                onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
+                                    e.currentTarget.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><rect width="400" height="400" fill="%23f3f4f6"/><circle cx="200" cy="150" r="50" fill="%236b7280"/><path d="M100 300 Q200 250 300 300" stroke="%236b7280" stroke-width="20" fill="none"/></svg>';
                                 }}
                             />
                         </div>

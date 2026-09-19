@@ -1,7 +1,18 @@
-import { ExternalLink, Github, Tags, ArrowRight } from "lucide-react"
+import { ExternalLink, Github, ArrowRight } from "lucide-react"
 
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  demoUrl: string;
+  githubUrl: string;
+  isLive: boolean;
+  embedUrl: string;
+}
 
-const projects = [
+const projects: Project[] = [
   {
     id: 1,
     title: '3D Earth Visualization',
@@ -35,8 +46,8 @@ const projects = [
     isLive: true,
     embedUrl: "https://faridberlin.github.io/tunel/",
   },
- 
-  
+
+
 ]
 
 export const ProjectsSection = () => {
@@ -55,7 +66,7 @@ export const ProjectsSection = () => {
            <div key={project.id} className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover ">
             <div className="h-48 overflow-hidden relative">
               {project.isLive && project.embedUrl ? (
-                <iframe 
+                <iframe
                   src={project.embedUrl}
                   className="w-full h-full border-0 transition-transform duration-500 group-hover:scale-110"
                   title={project.title}
@@ -63,7 +74,7 @@ export const ProjectsSection = () => {
                 />
               ) : (
                 <img src={project.image} alt={project.title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"/> 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"/>
               )}
               {project.isLive && (
                 <div className="absolute top-2 right-2 bg-green-500 text-white text-xs px-2 py-1 rounded-full">
@@ -79,7 +90,7 @@ export const ProjectsSection = () => {
 
                 ))}
 
-              </div> 
+              </div>
             <h3 className="text-xl font-semibold mb-1">{project.title}</h3>
             <p className="text-muted-foreground text-sm mb-4">{project.description}</p>
 
@@ -97,8 +108,8 @@ export const ProjectsSection = () => {
             </div>
 
 
-        
-           </div> 
+
+           </div>
           ))}
 
         </div>

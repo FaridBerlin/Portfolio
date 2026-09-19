@@ -2,8 +2,6 @@ import { Moon, Sun } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 
-
-
 export const ThemedToggle = () => {
     const [isDarkMode, setIsDarkMode] = useState(false);
 
@@ -35,8 +33,8 @@ export const ThemedToggle = () => {
     }
 
     return(
-    <button 
-        onClick={toggleTheme} 
+    <button
+        onClick={toggleTheme}
         className={cn(
             "fixed top-5 right-5 z-50 p-3 rounded-full transition-all duration-300",
             "bg-background/80 backdrop-blur-sm border border-border/50",
@@ -47,7 +45,7 @@ export const ThemedToggle = () => {
         )}
         aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
     >
-        {isDarkMode ? 
+        {isDarkMode ?
             <Sun className='h-5 w-5 text-yellow-500 transition-transform duration-300 hover:rotate-180' /> :
             <Moon className='h-5 w-5 text-primary transition-transform duration-300 hover:-rotate-12' />
         }

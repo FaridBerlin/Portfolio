@@ -1,11 +1,6 @@
-import React from 'react'
-
 import {
   Instagram,
   Linkedin,
-  Mail,
-  MapPin,
-  Phone,
   Send,
   Twitch,
   Twitter,
@@ -23,14 +18,14 @@ export const ContactSection = () => {
       description: "This amazing portfolio was built with React 19 + Vite 7 + Tailwind CSS 4 + Sonner for beautiful notifications!",
       duration: 4000,
     });
-    
+
     setTimeout(() => {
       toast.warning("⚡ Experimental Feature Alert", {
         description: "You're currently viewing the experimental branch with enhanced colorful toast notifications and bigger icons!",
         duration: 4000,
       });
     }, 1500);
-    
+
     setTimeout(() => {
       toast("🎨 Custom Toast Demo", {
         description: "This is a custom toast with bigger fonts, larger icons, and enhanced styling for better user experience!",
@@ -39,21 +34,22 @@ export const ContactSection = () => {
     }, 3000);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     setIsSubmitting(true);
-    
+
     // Show a loading toast first
     const loadingToast = toast.loading("🚀 Sending your awesome message...", {
       description: "Please wait while we process your request with style!",
     });
 
     // Simulate form validation
-    const formData = new FormData(e.target);
-    const name = formData.get('name').trim();
-    const email = formData.get('email').trim();
-    const message = formData.get('message').trim();
+    const formData = new FormData(e.currentTarget);
+    const name = (formData.get('name') as string).trim();
+    const email = (formData.get('email') as string).trim();
+    const message = (formData.get('message') as string).trim();
+    const form = e.currentTarget;
 
     // Check for empty fields
     if (!name || !email || !message) {
@@ -69,7 +65,7 @@ export const ContactSection = () => {
     setTimeout(() => {
       // Dismiss the loading toast
       toast.dismiss(loadingToast);
-      
+
       // Simulate random success/error for demo (90% success rate)
       if (Math.random() > 0.1) {
         // Show a colorful success toast
@@ -81,7 +77,7 @@ export const ContactSection = () => {
           },
           duration: 20000,
         });
-        e.target.reset();
+        form.reset();
       } else {
         // Show a colorful error toast
         toast.error("❌ Failed to send message", {
@@ -93,7 +89,7 @@ export const ContactSection = () => {
           duration: 5000,
         });
       }
-      
+
       setIsSubmitting(false);
     }, 1500);
   };
@@ -124,29 +120,29 @@ export const ContactSection = () => {
             <div>
               <h3 className="text-2xl font-semibold mb-6 text-center"> Connect With Me</h3>
               <div className="flex space-x-6 justify-center">
-                <a 
-                  href="#" 
+                <a
+                  href="#"
                   target="_blank"
                   className="p-4 rounded-full bg-primary/10 hover:bg-primary/20 transition-all duration-300 hover:scale-110"
                 >
                   <Linkedin className="h-7 w-7 text-primary" />
                 </a>
-                <a 
-                  href="#" 
+                <a
+                  href="#"
                   target="_blank"
                   className="p-4 rounded-full bg-primary/10 hover:bg-primary/20 transition-all duration-300 hover:scale-110"
                 >
                   <Twitter className="h-7 w-7 text-primary" />
                 </a>
-                <a 
-                  href="#" 
+                <a
+                  href="#"
                   target="_blank"
                   className="p-4 rounded-full bg-primary/10 hover:bg-primary/20 transition-all duration-300 hover:scale-110"
                 >
                   <Instagram className="h-7 w-7 text-primary" />
                 </a>
-                <a 
-                  href="#" 
+                <a
+                  href="#"
                   target="_blank"
                   className="p-4 rounded-full bg-primary/10 hover:bg-primary/20 transition-all duration-300 hover:scale-110"
                 >

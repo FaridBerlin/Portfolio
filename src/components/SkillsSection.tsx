@@ -1,39 +1,54 @@
 import { useState } from "react";
-import { Code, Database, Wrench, Server } from "lucide-react";
+import { Code, Database, Wrench, Server, type LucideIcon } from "lucide-react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-  faReact, 
-  faJs, 
-  faPython, 
-  faPhp, 
-  faHtml5, 
-  faCss3Alt, 
-  faNodeJs, 
-  faGitAlt, 
-  faGithub, 
-  faFigma, 
-  faDocker 
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import {
+  faReact,
+  faJs,
+  faPhp,
+  faHtml5,
+  faCss3Alt,
+  faNodeJs,
+  faGithub,
+  faFigma,
+  faDocker
 } from '@fortawesome/free-brands-svg-icons';
-import { 
-  faCode, 
-  faDatabase, 
-  faServer, 
+import {
+  faCode,
+  faDatabase,
   faPalette,
-  faTools,
   faGlobe
 } from '@fortawesome/free-solid-svg-icons';
 import { cn } from "@/lib/utils";
 
+interface TechEntryBase {
+  color: string;
+  bgColor: string;
+}
+
+interface TechEntryIcon extends TechEntryBase {
+  icon: IconDefinition;
+  customSvg?: false;
+}
+
+interface TechEntrySvg extends TechEntryBase {
+  customSvg: true;
+  svg: React.ReactNode;
+}
+
+type TechEntry = TechEntryIcon | TechEntrySvg;
+
 // Technology Icons Component with Font Awesome and original brand colors
-const TechIcon = ({ name, className = "w-[42px] h-[42px]" }) => {
-  const iconMap = {
+const TechIcon = ({ name, className = "w-[42px] h-[42px]" }: { name: string; className?: string }) => {
+  void className;
+  const iconMap: Record<string, TechEntry> = {
     // Frontend Technologies with brand colors
     React: { icon: faReact, color: "#61DAFB", bgColor: "rgba(97, 218, 251, 0.1)" },
     "React Native": { icon: faReact, color: "#61DAFB", bgColor: "rgba(97, 218, 251, 0.1)" },
     JavaScript: { icon: faJs, color: "#F7DF1E", bgColor: "rgba(247, 223, 30, 0.1)" },
-    Python: { 
-      customSvg: true, 
-      color: "#3776AB", 
+    Python: {
+      customSvg: true,
+      color: "#3776AB",
       bgColor: "rgba(55, 118, 171, 0.1)",
       svg: (
         <svg viewBox="0 0 24 24" style={{ width: '42px', height: '42px' }}>
@@ -56,9 +71,9 @@ const TechIcon = ({ name, className = "w-[42px] h-[42px]" }) => {
     },
     PHP: { icon: faPhp, color: "#777BB4", bgColor: "rgba(119, 123, 180, 0.1)" },
     TypeScript: { icon: faJs, color: "#3178C6", bgColor: "rgba(49, 120, 198, 0.1)" },
-    "Tailwind CSS": { 
-      customSvg: true, 
-      color: "#06B6D4", 
+    "Tailwind CSS": {
+      customSvg: true,
+      color: "#06B6D4",
       bgColor: "rgba(6, 182, 212, 0.1)",
       svg: (
         <svg viewBox="0 0 24 24" fill="currentColor" style={{ width: '42px', height: '42px' }}>
@@ -67,9 +82,9 @@ const TechIcon = ({ name, className = "w-[42px] h-[42px]" }) => {
       )
     },
     CSS: { icon: faCss3Alt, color: "#1572B6", bgColor: "rgba(21, 114, 182, 0.1)" },
-    "Next.js": { 
-      customSvg: true, 
-      color: "#000000", 
+    "Next.js": {
+      customSvg: true,
+      color: "#000000",
       bgColor: "rgba(0, 0, 0, 0.1)",
       svg: (
         <svg viewBox="0 0 24 24" fill="currentColor" style={{ width: '42px', height: '42px' }}>
@@ -78,19 +93,19 @@ const TechIcon = ({ name, className = "w-[42px] h-[42px]" }) => {
       )
     },
     HTML: { icon: faHtml5, color: "#E34F26", bgColor: "rgba(227, 79, 38, 0.1)" },
-    
+
     // Backend Technologies
     "Node.js": { icon: faNodeJs, color: "#339933", bgColor: "rgba(51, 153, 51, 0.1)" },
     "Express.js": { icon: faNodeJs, color: "#000000", bgColor: "rgba(0, 0, 0, 0.1)" },
     "REST APIs": { icon: faGlobe, color: "#FF6B35", bgColor: "rgba(255, 107, 53, 0.1)" },
     GraphQL: { icon: faCode, color: "#E10098", bgColor: "rgba(225, 0, 152, 0.1)" },
-    
+
     // Database Technologies
     MongoDB: { icon: faDatabase, color: "#47A248", bgColor: "rgba(71, 162, 72, 0.1)" },
     PostgreSQL: { icon: faDatabase, color: "#336791", bgColor: "rgba(51, 103, 145, 0.1)" },
     MySQL: { icon: faDatabase, color: "#4479A1", bgColor: "rgba(68, 121, 161, 0.1)" },
     Firebase: { icon: faDatabase, color: "#FFCA28", bgColor: "rgba(255, 202, 40, 0.1)" },
-    
+
     // Tools
     "Git/GitHub": { icon: faGithub, color: "#181717", bgColor: "rgba(24, 23, 23, 0.1)" },
     "VS Code": { icon: faCode, color: "#007ACC", bgColor: "rgba(0, 122, 204, 0.1)" },
@@ -100,12 +115,12 @@ const TechIcon = ({ name, className = "w-[42px] h-[42px]" }) => {
   };
 
   const tech = iconMap[name];
-  
+
   if (tech) {
     // Special handling for custom SVG icons (Tailwind CSS, Next.js)
     if (tech.customSvg) {
       return (
-        <div 
+        <div
           className="p-4 rounded-lg flex items-center justify-center"
           style={{ backgroundColor: tech.bgColor }}
         >
@@ -115,39 +130,16 @@ const TechIcon = ({ name, className = "w-[42px] h-[42px]" }) => {
         </div>
       );
     }
-    
-    // Special handling for HTML/CSS with dual icons (removed since we separated them)
-    if (tech.icons) {
-      return (
-        <div 
-          className="p-4 rounded-lg flex items-center justify-center gap-2"
-          style={{ backgroundColor: tech.bgColor }}
-        >
-          {tech.icons.map((iconData, index) => (
-            <FontAwesomeIcon 
-              key={index}
-              icon={iconData.icon} 
-              style={{ 
-                color: iconData.color,
-                fontSize: '36px',
-                width: '36px',
-                height: '36px'
-              }}
-            />
-          ))}
-        </div>
-      );
-    }
-    
+
     // Single FontAwesome icon handling
     return (
-      <div 
+      <div
         className="p-4 rounded-lg flex items-center justify-center"
         style={{ backgroundColor: tech.bgColor }}
       >
-        <FontAwesomeIcon 
-          icon={tech.icon} 
-          style={{ 
+        <FontAwesomeIcon
+          icon={tech.icon}
+          style={{
             color: tech.color,
             fontSize: '42px',
             width: '42px',
@@ -157,7 +149,7 @@ const TechIcon = ({ name, className = "w-[42px] h-[42px]" }) => {
       </div>
     );
   }
-  
+
   // Fallback for technologies without specific icons
   return (
     <div className="p-4 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
@@ -166,7 +158,18 @@ const TechIcon = ({ name, className = "w-[42px] h-[42px]" }) => {
   );
 };
 
-const skillCategories = {
+interface Skill {
+  name: string;
+  level: number;
+}
+
+interface SkillCategory {
+  name: string;
+  icon: LucideIcon;
+  skills: Skill[];
+}
+
+const skillCategories: Record<string, SkillCategory> = {
   frontend: {
     name: "Frontend",
     icon: Code,
@@ -269,7 +272,7 @@ export const SkillsSection = () => {
                   {skill.level}%
                 </span>
               </div>
-              
+
               <div className="w-full bg-secondary rounded-full h-2">
                 <div
                   className="bg-gradient-to-r from-primary to-primary/80 h-2 rounded-full transition-all duration-1000 ease-out"
@@ -286,7 +289,7 @@ export const SkillsSection = () => {
         {/* Additional Info */}
         <div className="mt-16 text-center">
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            I'm always learning and expanding my skill set. These percentages represent my current proficiency level, 
+            I'm always learning and expanding my skill set. These percentages represent my current proficiency level,
             and I'm continuously working to improve and stay up-to-date with the latest technologies.
           </p>
         </div>

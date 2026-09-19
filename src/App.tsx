@@ -4,10 +4,7 @@ import { NotFound } from "./pages/NotFound"
 import { Impressum } from "./pages/Impressum"
 import { Toaster } from 'sonner'
 
-
 function App() {
-  
-
   return (
     <>
     <BrowserRouter basename="/Portfolio">
@@ -16,7 +13,7 @@ function App() {
         <Route path="/impressum" element={<Impressum />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Toaster 
+      <Toaster
         position="top-right"
         expand={true}
         richColors={true}

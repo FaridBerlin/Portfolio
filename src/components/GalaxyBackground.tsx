@@ -12,7 +12,7 @@
 
 // // With custom prop values
 // <div style={{ width: '100%', height: '600px', position: 'relative' }}>
-//   <Galaxy 
+//   <Galaxy
 //     mouseRepulsion={true}
 //     mouseInteraction={true}
 //     density={1.5}
@@ -21,10 +21,6 @@
 //     hueShift={240}
 //   />
 // </div>
-
-
-
-
 
 import { Renderer, Program, Mesh, Color, Triangle } from "ogl";
 import { useEffect, useRef } from "react";
@@ -111,7 +107,7 @@ float Star(vec2 uv, float flare) {
 vec3 StarLayer(vec2 uv) {
   vec3 col = vec3(0.0);
 
-  vec2 gv = fract(uv) - 0.5; 
+  vec2 gv = fract(uv) - 0.5;
   vec2 id = floor(uv);
 
   for (int y = -1; y <= 1; y++) {
@@ -127,7 +123,7 @@ vec3 StarLayer(vec2 uv) {
       float blu = smoothstep(STAR_COLOR_CUTOFF, 1.0, Hash21(si + 3.0)) + STAR_COLOR_CUTOFF;
       float grn = min(red, blu) * seed;
       vec3 base = vec3(red, grn, blu);
-      
+
       float hue = atan(base.g - base.r, base.b - base.r) / (2.0 * 3.14159) + 0.5;
       hue = fract(hue + uHueShift / 360.0);
       float sat = length(base - vec3(dot(base, vec3(0.299, 0.587, 0.114)))) * uSaturation;
@@ -142,7 +138,7 @@ vec3 StarLayer(vec2 uv) {
       float twinkle = trisn(uTime * uSpeed + seed * 6.2831) * 0.5 + 1.0;
       twinkle = mix(1.0, twinkle, uTwinkleIntensity);
       star *= twinkle;
-      
+
       col += star * size * color;
     }
   }
@@ -155,7 +151,7 @@ void main() {
   vec2 uv = (vUv * uResolution.xy - focalPx) / uResolution.y;
 
   vec2 mouseNorm = uMouse - vec2(0.5);
-  
+
   if (uAutoCenterRepulsion > 0.0) {
     vec2 centerUV = vec2(0.0, 0.0); // Center in UV space
     float centerDist = length(uv - centerUV);
@@ -197,6 +193,26 @@ void main() {
 }
 `;
 
+interface GalaxyProps {
+  focal?: [number, number];
+  rotation?: [number, number];
+  starSpeed?: number;
+  density?: number;
+  hueShift?: number;
+  disableAnimation?: boolean;
+  speed?: number;
+  mouseInteraction?: boolean;
+  glowIntensity?: number;
+  saturation?: number;
+  mouseRepulsion?: boolean;
+  repulsionStrength?: number;
+  twinkleIntensity?: number;
+  rotationSpeed?: number;
+  autoCenterRepulsion?: number;
+  transparent?: boolean;
+  [key: string]: unknown;
+}
+
 export default function Galaxy({
   focal = [0.5, 0.5],
   rotation = [1.0, 0.0],
@@ -215,8 +231,8 @@ export default function Galaxy({
   autoCenterRepulsion = 0,
   transparent = true,
   ...rest
-}) {
-  const ctnDom = useRef(null);
+}: GalaxyProps) {
+  const ctnDom = useRef<HTMLDivElement>(null);
   const targetMousePos = useRef({ x: 0.5, y: 0.5 });
   const smoothMousePos = useRef({ x: 0.5, y: 0.5 });
   const targetMouseActive = useRef(0.0);
@@ -239,7 +255,10 @@ export default function Galaxy({
       gl.clearColor(0, 0, 0, 1);
     }
 
-    let program;
+    // Declared here (not at its assignment below) because `resize()` closes
+    // over it and can run before the Program is created.
+    // eslint-disable-next-line prefer-const
+    let program: Program;
 
     function resize() {
       const scale = 1;
@@ -293,9 +312,9 @@ export default function Galaxy({
     });
 
     const mesh = new Mesh(gl, { geometry, program });
-    let animateId;
+    let animateId: number;
 
-    function update(t) {
+    function update(t: number) {
       animateId = requestAnimationFrame(update);
       if (!disableAnimation) {
         program.uniforms.uTime.value = t * 0.001;
@@ -320,7 +339,7 @@ export default function Galaxy({
     animateId = requestAnimationFrame(update);
     ctn.appendChild(gl.canvas);
 
-    function handleMouseMove(e) {
+    function handleMouseMove(e: MouseEvent) {
       const rect = ctn.getBoundingClientRect();
       const x = (e.clientX - rect.left) / rect.width;
       const y = 1.0 - (e.clientY - rect.top) / rect.height;

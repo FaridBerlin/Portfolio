@@ -58,7 +58,7 @@ export const Footer = () => {
               Passionate web developer creating exceptional digital experiences with modern technologies.
               Always learning, always building, always pushing the boundaries of what's possible.
             </p>
-            
+
             {/* Social Links */}
             <div className="flex gap-4">
               {socialLinks.map((social) => {
@@ -125,16 +125,16 @@ export const Footer = () => {
             <div className="text-muted-foreground text-sm">
               © {currentYear} Farid Hima. All rights reserved.
             </div>
-            
+
             <div className="flex items-center gap-2 text-muted-foreground text-sm">
               <span>Made with</span>
               <Heart className="h-4 w-4 text-primary animate-pulse" />
               <span>using React & Tailwind CSS</span>
             </div>
-            
+
             <div className="flex gap-6 text-sm">
-              <Link 
-                to="/impressum" 
+              <Link
+                to="/impressum"
                 className="text-muted-foreground hover:text-primary transition-colors duration-300"
               >
                 Impressum

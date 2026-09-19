@@ -20,9 +20,9 @@ export const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const handleNavClick = (e, href) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    
+
     // If we're not on the home page, navigate to home first
     if (location.pathname !== "/" && location.pathname !== "/Portfolio" && location.pathname !== "/Portfolio/") {
       navigate("/" + href);
@@ -40,7 +40,7 @@ export const Navbar = () => {
         element.scrollIntoView({ behavior: "smooth" });
       }
     }
-    
+
     setIsMobileMenuOpen(false);
   };
 
@@ -98,7 +98,7 @@ export const Navbar = () => {
               {item.name}
             </a>
           ))}
-          
+
           {/* Theme Toggle - Desktop */}
           <button
             onClick={toggleTheme}
@@ -127,9 +127,9 @@ export const Navbar = () => {
               <Sun size={20} className="text-yellow-400" />
             )}
           </button>
-          
+
           {/* Mobile Menu Button */}
-          <button 
+          <button
             onClick={() => setIsMobileMenuOpen((prev) => !prev)}
             className="p-2 text-foreground z-50"
             aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
