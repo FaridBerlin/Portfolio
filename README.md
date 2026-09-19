@@ -59,14 +59,22 @@ A modern, responsive, and visually stunning portfolio website built with React a
    npm install
    ```
 
-3. **Start development server**
+3. **Set up environment variables**
+
+   The contact form sends email via [EmailJS](https://www.emailjs.com/). Copy `.env.example` to `.env` and fill in your own service/template/public key from your EmailJS dashboard:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+4. **Start development server**
 
    ```bash
    npm run dev
    ```
 
-4. **Open in browser**
-   Navigate to `http://localhost:5174`
+5. **Open in browser**
+   Navigate to the local URL Vite prints (usually `http://localhost:5173`)
 
 ### Build for Production
 
