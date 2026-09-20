@@ -194,7 +194,7 @@ const skillCategories: Record<string, SkillCategory> = {
     name: "Backend",
     icon: Server,
     skills: [
-      { name: "Node.js", level: 65 },
+      { name: "Node.js", level: 90 },
       { name: "Express.js", level: 90 },
       { name: "Python", level: 60 },
       { name: "Go", level: 80 },
