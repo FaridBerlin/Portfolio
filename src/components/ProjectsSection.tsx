@@ -9,7 +9,6 @@ interface Project {
   demoUrl: string;
   githubUrl: string;
   isLive: boolean;
-  embedUrl: string;
 }
 
 const projects: Project[] = [
@@ -17,34 +16,31 @@ const projects: Project[] = [
     id: 1,
     title: '3D Earth Visualization',
     description: 'Interactive 3D Earth built with Three.js featuring realistic textures, lighting, and smooth rotation animations.',
-    image: "/projects/project1.png",
+    image: "projects/project1.png",
     tags: ["Three.js", "WebGL", "JavaScript"],
     demoUrl: "https://faridberlin.github.io/earth3d/",
     githubUrl: "https://github.com/FaridBerlin/earth3d",
     isLive: true,
-    embedUrl: "https://faridberlin.github.io/earth3d/",
   },
   {
     id: 2,
     title: 'Weather App',
     description: 'Dynamic weather application with real-time weather data, location search, and beautiful UI with weather animations.',
-    image: "/projects/project2.png",
+    image: "projects/project2.png",
     tags: ["JavaScript", "Weather API", "CSS"],
     demoUrl: "https://faridberlin.github.io/weather-15-jul/",
     githubUrl: "https://github.com/FaridBerlin/weather-15-jul",
     isLive: true,
-    embedUrl: "https://faridberlin.github.io/weather-15-jul/",
   },
   {
     id: 3,
     title: 'Tunel',
     description: 'Interactive tunnel visualization with immersive 3D graphics and smooth animations.',
-    image: "/projects/project3.png",
+    image: "projects/project3.png",
     tags: ["Three.js", "WebGL", "JavaScript"],
     demoUrl: "https://faridberlin.github.io/tunel/",
     githubUrl: "https://github.com/FaridBerlin/tunel",
     isLive: true,
-    embedUrl: "https://faridberlin.github.io/tunel/",
   },
 
 
@@ -66,17 +62,15 @@ export const ProjectsSection = () => {
           {projects.map((project) => (
            <div key={project.id} className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover ">
             <div className="h-48 overflow-hidden relative">
-              {project.isLive && project.embedUrl ? (
-                <iframe
-                  src={project.embedUrl}
-                  className="w-full h-full border-0 transition-transform duration-500 group-hover:scale-110"
-                  title={project.title}
-                  loading="lazy"
-                />
-              ) : (
-                <img src={project.image} alt={project.title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"/>
-              )}
+              <img
+                src={`${import.meta.env.BASE_URL}${project.image}`}
+                alt={`Preview of ${project.title}`}
+                width={800}
+                height={414}
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
               {project.isLive && (
                 <div className="absolute top-2 right-2 bg-green-500 text-white text-xs px-2 py-1 rounded-full">
                   LIVE
