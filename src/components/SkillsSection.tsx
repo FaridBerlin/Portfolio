@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Code, Database, Wrench, Server, type LucideIcon } from "lucide-react";
+import { Code, Database, Wrench, Server, Smartphone, type LucideIcon } from "lucide-react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -11,7 +11,9 @@ import {
   faNodeJs,
   faGithub,
   faFigma,
-  faDocker
+  faDocker,
+  faGolang,
+  faAndroid
 } from '@fortawesome/free-brands-svg-icons';
 import {
   faCode,
@@ -97,6 +99,10 @@ const TechIcon = ({ name, className = "w-[42px] h-[42px]" }: { name: string; cla
     // Backend Technologies
     "Node.js": { icon: faNodeJs, color: "#339933", bgColor: "rgba(51, 153, 51, 0.1)" },
     "Express.js": { icon: faNodeJs, color: "#000000", bgColor: "rgba(0, 0, 0, 0.1)" },
+    Go: { icon: faGolang, color: "#00ADD8", bgColor: "rgba(0, 173, 216, 0.1)" },
+    Kotlin: { icon: faCode, color: "#7F52FF", bgColor: "rgba(127, 82, 255, 0.1)" },
+    "Android Studio": { icon: faAndroid, color: "#3DDC84", bgColor: "rgba(61, 220, 132, 0.1)" },
+    "IntelliJ IDEA": { icon: faCode, color: "#087CFA", bgColor: "rgba(8, 124, 250, 0.1)" },
     "REST APIs": { icon: faGlobe, color: "#FF6B35", bgColor: "rgba(255, 107, 53, 0.1)" },
     GraphQL: { icon: faCode, color: "#E10098", bgColor: "rgba(225, 0, 152, 0.1)" },
 
@@ -175,7 +181,6 @@ const skillCategories: Record<string, SkillCategory> = {
     icon: Code,
     skills: [
       { name: "React", level: 95 },
-      { name: "React Native", level: 60 },
       { name: "JavaScript", level: 90 },
       { name: "PHP", level: 40 },
       { name: "TypeScript", level: 85 },
@@ -192,8 +197,19 @@ const skillCategories: Record<string, SkillCategory> = {
       { name: "Node.js", level: 65 },
       { name: "Express.js", level: 60 },
       { name: "Python", level: 60 },
+      { name: "Go", level: 80 },
       { name: "REST APIs", level: 20 },
       { name: "GraphQL", level: 20 },
+    ],
+  },
+  mobile: {
+    name: "Mobile",
+    icon: Smartphone,
+    skills: [
+      { name: "Kotlin", level: 80 },
+      { name: "Android Studio", level: 80 },
+      { name: "IntelliJ IDEA", level: 80 },
+      { name: "React Native", level: 60 },
     ],
   },
   database: {
