@@ -1,4 +1,4 @@
-import { Github, Linkedin, Twitter, Mail, Heart, ExternalLink } from "lucide-react";
+import { Github, Linkedin, Mail, Heart, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export const Footer = () => {
@@ -26,13 +26,8 @@ export const Footer = () => {
     },
     {
       name: "LinkedIn",
-      href: "https://linkedin.com",
+      href: "https://www.linkedin.com/in/farid-hima-834521389/",
       icon: Linkedin,
-    },
-    {
-      name: "Twitter",
-      href: "https://twitter.com",
-      icon: Twitter,
     },
     {
       name: "Email",
