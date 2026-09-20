@@ -97,10 +97,22 @@ export const ProjectsSection = () => {
 
             <div className="flex justify-between items-center">
               <div className="flex space-x-3">
-                <a href={project.demoUrl} className="text-foreground/80 hover:text-primary transition-colors duration-300">
+                <a
+                  href={project.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`View live demo of ${project.title}`}
+                  className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                >
                   <ExternalLink size={20}/>
                 </a>
-                <a href={project.githubUrl} className="text-foreground/80 hover:text-primary transition-colors duration-300" >
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`View source of ${project.title} on GitHub`}
+                  className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                >
                   <Github size={20}/>
                 </a>
               </div>
@@ -119,6 +131,7 @@ export const ProjectsSection = () => {
           <a
             className="cosmic-button w-fit flex items-center mx-auto gap-2"
             target="_blank"
+            rel="noopener noreferrer"
             href="https://github.com/FaridBerlin"
           >
             Check My Github <ArrowRight size={25} />
