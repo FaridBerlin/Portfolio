@@ -177,7 +177,6 @@ const skillCategories: Record<string, SkillCategory> = {
       { name: "React", level: 95 },
       { name: "React Native", level: 60 },
       { name: "JavaScript", level: 90 },
-      { name: "Python", level: 60 },
       { name: "PHP", level: 40 },
       { name: "TypeScript", level: 85 },
       { name: "Tailwind CSS", level: 92 },
@@ -192,7 +191,7 @@ const skillCategories: Record<string, SkillCategory> = {
     skills: [
       { name: "Node.js", level: 65 },
       { name: "Express.js", level: 60 },
-      { name: "Python", level: 35 },
+      { name: "Python", level: 60 },
       { name: "REST APIs", level: 20 },
       { name: "GraphQL", level: 20 },
     ],
