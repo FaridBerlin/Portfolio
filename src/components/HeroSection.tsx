@@ -17,8 +17,12 @@ return (
                     <span  className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2"> Hima</span>
                 </h1>
                 <p className="font-medium text-lg md:text-xl text-muted-foreground max-w-2xl opacity-0 animate-fade-in-delay-3 text-left">
-                I craft exceptional web and mobile experiences using the latest technologies.
-                With a passion for both design and code, I specialize in building visually stunning, intuitive, and high-performance interfaces that delight users and drive results.
+                Full Stack Web Developer specializing in the MERN stack, with hands-on experience
+                building real-time platforms using Vue 3 and Socket.io. I bring an unconventional
+                path into tech &mdash; 2+ years running Amazon FBA e-commerce operations and building a
+                180,000-subscriber audience &mdash; combined with a completed fullstack program at DCI
+                Berlin. I bring analytical thinking, technical range, and a solution-oriented
+                mindset, ready to contribute from day one.
                 </p>
 
                 <div className="pt-4 opacity-0 animate-fade-in-delay-4 text-left">

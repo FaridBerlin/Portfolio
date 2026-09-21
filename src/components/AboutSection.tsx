@@ -12,20 +12,29 @@ export const AboutSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h3 className="text-2xl font-semibold">
-              Passionate Web Developer & Tech Creator
+              From E-Commerce &amp; Media to Full-Stack Development
             </h3>
 
             <p className="text-muted-foreground">
-              With over 5 years of experience in web development, I specialize
-              in creating responsive, accessible, and performant web
-              applications using modern technologies.
+              I'm a Full Stack Web Developer based in Berlin with a completed MERN stack
+              program at DCI Digital Career Institute (graduated April 2026) and hands-on
+              experience building real-time backends with Node.js, Express, and Socket.io
+              during my internship at Crowds, alongside frontend work in Vue 3 and Pinia.
             </p>
 
             <p className="text-muted-foreground">
-              I'm passionate about creating elegant solutions to complex
-              problems, and I'm constantly learning new technologies and
-              techniques to stay at the forefront of the ever-evolving web
-              landscape.
+              Before tech, I spent years building things in other domains &mdash; managing
+              Amazon FBA e-commerce operations, growing a YouTube channel to 180,000
+              subscribers, and competing internationally as an IFBB Fit Model. That path
+              taught me how to learn fast, take ownership, and ship consistently under real
+              constraints &mdash; skills I now bring to writing code.
+            </p>
+
+            <p className="text-muted-foreground">
+              I'm currently focused on full-stack JavaScript/TypeScript development, with
+              growing expertise in AI integration &mdash; working with LLMs, Ollama, and
+              automation tools like n8n and Zapier. I'm constantly building side projects to
+              sharpen these skills, from AI-powered apps to real-time games.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
