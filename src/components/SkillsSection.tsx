@@ -68,12 +68,13 @@ const skillGroups: SkillGroup[] = [
       "LLM Integration",
       "n8n",
       "Zapier",
+      "Claude Code",
     ],
   },
   {
     name: "Tools",
     icon: Wrench,
-    skills: ["Postman"],
+    skills: ["Postman", "Figma", "Canva"],
   },
 ];
 
