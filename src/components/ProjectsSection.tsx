@@ -18,8 +18,9 @@ const projects: Project[] = [
     description: 'Flagship project. Led a 4-person development team building AI-driven meal planning, with tracking and dashboard functionality. Deployed on a Hetzner VPS with Nginx.',
     image: "projects/project4.png",
     tags: ["React", "Node.js", "MongoDB", "AI Integration", "Nginx"],
+    demoUrl: "https://nutriva.live/",
     githubUrl: "https://github.com/FaridBerlin/NutriVa",
-    isLive: false,
+    isLive: true,
   },
   {
     id: 2,
