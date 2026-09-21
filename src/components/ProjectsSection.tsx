@@ -6,7 +6,7 @@ interface Project {
   description: string;
   image: string;
   tags: string[];
-  demoUrl: string;
+  demoUrl?: string;
   githubUrl: string;
   isLive: boolean;
 }
@@ -14,6 +14,36 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
+    title: 'NutriVa \u2013 AI-Powered Nutrition App',
+    description: 'Flagship project. Led a 4-person development team building AI-driven meal planning, with tracking and dashboard functionality. Deployed on a Hetzner VPS with Nginx.',
+    image: "projects/project4.png",
+    tags: ["React", "Node.js", "MongoDB", "AI Integration", "Nginx"],
+    demoUrl: "https://nutriva.live/",
+    githubUrl: "https://github.com/FaridBerlin/NutriVa",
+    isLive: true,
+  },
+  {
+    id: 2,
+    title: 'Space Invader Game',
+    description: 'Classic arcade game built with JavaScript and Canvas, focused on game logic and animation.',
+    image: "projects/project5.png",
+    tags: ["JavaScript", "Canvas", "Game Logic"],
+    demoUrl: "https://space-invader-three.vercel.app",
+    githubUrl: "https://github.com/FaridBerlin/space-invader",
+    isLive: true,
+  },
+  {
+    id: 3,
+    title: 'Weather App',
+    description: 'Real-time weather via the OpenWeather API, with location search and animated conditions. Built in two versions: a JavaScript/TypeScript client, and a Python/Flask build with containerized API integration via Docker.',
+    image: "projects/project2.png",
+    tags: ["JavaScript", "TypeScript", "OpenWeather API", "Python", "Flask", "Docker"],
+    demoUrl: "https://faridberlin.github.io/weather-15-jul/",
+    githubUrl: "https://github.com/FaridBerlin/weather-15-jul",
+    isLive: true,
+  },
+  {
+    id: 4,
     title: '3D Earth Visualization',
     description: 'Interactive 3D Earth built with Three.js featuring realistic textures, lighting, and smooth rotation animations.',
     image: "projects/project1.png",
@@ -23,17 +53,7 @@ const projects: Project[] = [
     isLive: true,
   },
   {
-    id: 2,
-    title: 'Weather App',
-    description: 'Dynamic weather application with real-time weather data, location search, and beautiful UI with weather animations.',
-    image: "projects/project2.png",
-    tags: ["JavaScript", "Weather API", "CSS"],
-    demoUrl: "https://faridberlin.github.io/weather-15-jul/",
-    githubUrl: "https://github.com/FaridBerlin/weather-15-jul",
-    isLive: true,
-  },
-  {
-    id: 3,
+    id: 5,
     title: 'Tunel',
     description: 'Interactive tunnel visualization with immersive 3D graphics and smooth animations.',
     image: "projects/project3.png",
@@ -42,8 +62,6 @@ const projects: Project[] = [
     githubUrl: "https://github.com/FaridBerlin/tunel",
     isLive: true,
   },
-
-
 ]
 
 export const ProjectsSection = () => {
@@ -91,15 +109,17 @@ export const ProjectsSection = () => {
 
             <div className="flex justify-between items-center">
               <div className="flex space-x-3">
-                <a
-                  href={project.demoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`View live demo of ${project.title}`}
-                  className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                >
-                  <ExternalLink size={20}/>
-                </a>
+                {project.demoUrl && (
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`View live demo of ${project.title}`}
+                    className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                  >
+                    <ExternalLink size={20}/>
+                  </a>
+                )}
                 <a
                   href={project.githubUrl}
                   target="_blank"
