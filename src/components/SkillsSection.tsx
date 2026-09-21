@@ -1,4 +1,4 @@
-import { Code, Database, Server, Sparkles, Wrench, type LucideIcon } from "lucide-react";
+import { Code, Database, Server, Smartphone, Sparkles, Wrench, type LucideIcon } from "lucide-react";
 
 interface SkillGroup {
   name: string;
@@ -14,7 +14,6 @@ const skillGroups: SkillGroup[] = [
       "JavaScript",
       "TypeScript",
       "React",
-      "React Native",
       "Vue 3",
       "Next.js",
       "Angular",
@@ -31,6 +30,7 @@ const skillGroups: SkillGroup[] = [
       "Node.js",
       "Express.js",
       "Python",
+      "Go",
       "PHP",
       "Flask",
       "Django",
@@ -38,6 +38,11 @@ const skillGroups: SkillGroup[] = [
       "Socket.io",
       "MJML",
     ],
+  },
+  {
+    name: "Mobile Development",
+    icon: Smartphone,
+    skills: ["Kotlin", "Android Studio", "IntelliJ IDEA", "React Native"],
   },
   {
     name: "Databases & DevOps",
