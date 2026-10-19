@@ -97,14 +97,16 @@ matches:
 - **Experience & Education** — new section between About and Skills, with
   its own nav link. Crowds, Amazon FBA at IIIHT, the DCI programme and
   languages.
-- **Skills** — percentage bars replaced with a tag layout in six groups:
-  Frontend, Backend, Mobile Development, Databases & DevOps, AI &
-  Automation, Tools. There were no verified proficiency numbers, so
+- **Skills** — percentage bars replaced with a tag layout in seven groups:
+  Frontend, Backend, Mobile Development, Game Development & C++
+  (C++17, C, raylib, CMake), Databases & DevOps, AI & Automation, Tools. There were no verified proficiency numbers, so
   inventing them was not an option. The old `TechIcon` component went
   with it, and `@fortawesome` is no longer imported anywhere in `src/`.
 - **Projects** — five cards. NutriVa first (live at https://nutriva.live/,
   which does serve behind nginx, matching its description), Space
-  Invader, Weather App covering both the JS/TS and Python/Flask/Docker
+  Invader 3D (C++17/raylib/CMake, browser demo at
+  https://faridberlin.github.io/Space-Invader-3D/, replacing the old
+  JavaScript Canvas version), Weather App covering both the JS/TS and Python/Flask/Docker
   builds, plus the two Three.js demos.
 - **Download CV** — button and `public/Farid-Hima-CV.pdf` both removed.
   The content now lives on the page, and the PDF had been publicly
