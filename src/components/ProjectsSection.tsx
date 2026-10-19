@@ -24,12 +24,12 @@ const projects: Project[] = [
   },
   {
     id: 2,
-    title: 'Space Invader Game',
-    description: 'Classic arcade game built with JavaScript and Canvas, focused on game logic and animation.',
-    image: "projects/project5.png",
-    tags: ["JavaScript", "Canvas", "Game Logic"],
-    demoUrl: "https://space-invader-three.vercel.app",
-    githubUrl: "https://github.com/FaridBerlin/space-invader",
+    title: 'Space Invader 3D',
+    description: '3D arcade shooter written in C++17 with raylib and built with CMake. Seven levels, three boss fights and combo scoring; runs on Windows, Linux and Android (coming to Google Play), with a free demo playable in the browser.',
+    image: "projects/space-invader-3d.png",
+    tags: ["C++17", "C", "raylib", "CMake", "WebAssembly"],
+    demoUrl: "https://faridberlin.github.io/Space-Invader-3D/",
+    githubUrl: "https://github.com/FaridBerlin/Space-Invader-3D",
     isLive: true,
   },
   {

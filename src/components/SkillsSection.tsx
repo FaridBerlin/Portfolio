@@ -1,4 +1,4 @@
-import { Code, Database, Server, Smartphone, Sparkles, Wrench, type LucideIcon } from "lucide-react";
+import { Code, Database, Gamepad2, Server, Smartphone, Sparkles, Wrench, type LucideIcon } from "lucide-react";
 
 interface SkillGroup {
   name: string;
@@ -43,6 +43,11 @@ const skillGroups: SkillGroup[] = [
     name: "Mobile Development",
     icon: Smartphone,
     skills: ["Kotlin", "Android Studio", "IntelliJ IDEA", "React Native"],
+  },
+  {
+    name: "Game Development & C++",
+    icon: Gamepad2,
+    skills: ["C++17", "C", "raylib", "CMake"],
   },
   {
     name: "Databases & DevOps",
